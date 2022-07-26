@@ -10,12 +10,14 @@ public class Digraph {
     private Queue[] adj;
 
     public Digraph(int v){
+        v = v+1;
         V = 0;
         E = 0;
         adj = new ArrayDeque[v];
         for (int i = 0 ; i < v ; i++)
         {
             adj[i] = new ArrayDeque();
+            V++;
         }
     }
 

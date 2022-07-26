@@ -13,10 +13,23 @@ public class DirectedCycle {
         int v = d.getV();
         onStack = new boolean[v];
         marked = new boolean[v];
+        for (int i = 0 ; i < v ; i++)
+        {
+            onStack[i] = false;
+            marked[i] = false;
+        }
         hasCycle = false;
+        for (int j = 0; j < v ; j++)
+        {
+            if (!marked[j])
+            {
+                dfs(d,j);
+            }
+        }
+
     }
 
-    private void dfs(Digraph d , int v)
+    public void dfs(Digraph d , int v)
     {
         marked[v] = true;
         onStack[v] = true;

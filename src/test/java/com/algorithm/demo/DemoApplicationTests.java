@@ -1,5 +1,6 @@
 package com.algorithm.demo;
 
+import com.algorithm.demo.classUtil.Digraph;
 import com.algorithm.demo.classUtil.Node;
 import com.algorithm.demo.classUtil.RedBlackNode;
 import com.algorithm.demo.classUtil.SymbolNode;
@@ -381,6 +382,21 @@ class DemoApplicationTests {
     }
 
     @Test
+    void directedCycleTest()
+    {
+        Digraph d = new Digraph(5);
+
+        d.addEdge(1,2);
+        d.addEdge(2,3);
+        d.addEdge(3,4);
+        d.addEdge(3,5);
+        d.addEdge(4,2);
+        DirectedCycle directedCycle = new DirectedCycle(d);
+
+        System.out.println("cycle is " + directedCycle.hasCycle());
+    }
+
+    @Test
     void diguiTest()
     {
        System.out.println(takeFun(10));
@@ -397,4 +413,6 @@ class DemoApplicationTests {
         System.out.println("takeFun("+i+")");
         return temp;
     }
+
+
 }
